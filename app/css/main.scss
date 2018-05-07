@@ -1,0 +1,26 @@
+$border-radius:               0rem;
+$border-radius-lg:            0rem;
+$border-radius-sm:            0rem;
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 812px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1560px
+);
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+@import "template_vars";
+@import "template_mixins";
+@import "template_webfonts";
+
+@import "components/flying-nav";
+@import "components/lightslider";
+@import "components/pageLoad";
+@import "components/nanoscroller";
+
+
+@import "template_styles";
