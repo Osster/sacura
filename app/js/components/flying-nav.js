@@ -49,7 +49,7 @@ $.fn.pageNav = function (options) {
             that.hide();
         });
 
-        var $show = that.find('.show');
+        var $show = that.find('.on-show');
         $show.on('click', function () {
             that.show();
         });

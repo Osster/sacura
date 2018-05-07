@@ -39,7 +39,6 @@ $(document).ready(function () {
         //return false;
     });
 
-
     pageCart = $('#page-cart').pageCart({
         trigger: $('#trigger-cart')
     });
@@ -108,12 +107,12 @@ $(window).load(function () {
         onAfterToggle: function () {
             if (typeof slider !== 'undefined' && slider.length > 0) {
                 slider.refresh();
+            }
 
-                if (pageNav.hasClass('on-show')) {
-                    $(".nano").nanoScroller();
-                } else {
-                    $(".nano").nanoScroller({destroy: true});
-                }
+            if (pageNav.hasClass('on-show')) {
+                $(".nano").nanoScroller();
+            } else {
+                $(".nano").nanoScroller({destroy: true});
             }
         }
     });

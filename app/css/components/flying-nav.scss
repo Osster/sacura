@@ -84,7 +84,12 @@
     }
   }
 
+  &.left &__title {
+    justify-content: center;
+  }
+
   &.on-show.left &__title {
+    justify-content: space-between;
     @include mobile-landscape() {
       width: 80% !important;
       height: #{$header_height} !important;
@@ -143,6 +148,7 @@
     position: relative;
     @include transition(0.4s, ease);
     max-height: calc(100vh - #{$logo_height + $title_height + $switcher_height});
+    height: calc(100vh - #{$logo_height + $title_height + $switcher_height});
 
     &__list {
       padding: 0;
@@ -151,6 +157,7 @@
       overflow: hidden;
       overflow-y: auto;
       max-height: calc(100vh - #{$logo_height + $title_height + $switcher_height});
+      height: calc(100vh - #{$logo_height + $title_height + $switcher_height});
 
       ul {
         padding: 0;
@@ -184,19 +191,22 @@
 
         @include mobile-all() {
           &:last-of-type {
-            margin-bottom: 3rem;
+            margin-bottom: 6rem;
           }
         }
       }
 
       @include mobile-all() {
         max-height: calc(100vh - #{$logo_height/2 + $title_height + $switcher_height});
+        height: calc(100vh - #{$logo_height/2 + $title_height + $switcher_height});
       }
       @include mobile-landscape() {
         max-height: calc(100vh - #{$header_height + $title_height}) !important;
+        height: calc(100vh - #{$header_height + $title_height}) !important;
       }
       @include tablet-all() {
         max-height: calc(100vh - #{($logo_height * 2/3) + $title_height + $switcher_height});
+        height: calc(100vh - #{($logo_height * 2/3) + $title_height + $switcher_height});
       }
     }
 
@@ -204,14 +214,17 @@
       width: 200%;
       min-width: 200%;
       max-height: calc(100vh - #{$logo_height/2 + $title_height + $switcher_height});
+      height: calc(100vh - #{$logo_height/2 + $title_height + $switcher_height});
     }
     @include mobile-landscape() {
       max-height: calc(100vh - #{$header_height + $title_height}) !important;
+      height: calc(100vh - #{$header_height + $title_height}) !important;
     }
     @include tablet-all() {
       width: 200%;
       min-width: 200%;
       max-height: calc(100vh - #{($logo_height * 2/3) + $title_height + $switcher_height});
+      height: calc(100vh - #{($logo_height * 2/3) + $title_height + $switcher_height});
     }
   }
 

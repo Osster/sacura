@@ -6328,6 +6328,16 @@ a.text-dark:focus {
   display: block;
 }
 
+.flying-nav.left .flying-nav__title {
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.flying-nav.on-show.left .flying-nav__title {
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
 .flying-nav__close {
   color: #ef9031 !important;
   border: 1px solid #ef9031;
@@ -6378,6 +6388,7 @@ a.text-dark:focus {
   position: relative;
   transition: all 0.4s ease;
   max-height: calc(100vh - 333px);
+  height: calc(100vh - 333px);
 }
 
 .flying-nav__lists__list {
@@ -6387,6 +6398,7 @@ a.text-dark:focus {
   overflow: hidden;
   overflow-y: auto;
   max-height: calc(100vh - 333px);
+  height: calc(100vh - 333px);
 }
 
 .flying-nav__lists__list ul {
@@ -7823,6 +7835,36 @@ main {
   color: #f3aa60;
   background-color: transparent;
   border-color: #f3aa60;
+}
+
+.map {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.map .contact-menu {
+  width: 340px;
+  background-color: #f2f2f2;
+}
+
+.map .contact-menu .flying-nav__switcher {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.map .contact-menu .flying-nav__lists {
+  padding: 20px;
+}
+
+.map .contact-menu .flying-nav__lists.lists {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.map .map-container {
+  width: calc(100% - 320px);
+  min-height: 600px;
+  position: relative;
 }
 
 @media (min-width: 576px) {
@@ -12135,11 +12177,13 @@ main {
   .flying-nav__lists__list {
     /* mobile-landscape */
     max-height: calc(100vh - 108px) !important;
+    height: calc(100vh - 108px) !important;
   }
 
   .flying-nav__lists {
     /* mobile-landscape */
     max-height: calc(100vh - 108px) !important;
+    height: calc(100vh - 108px) !important;
   }
 
   .page-cards__content .card {
@@ -12158,12 +12202,13 @@ main {
   }
 
   .flying-nav__lists__list__item:last-of-type {
-    margin-bottom: 3rem;
+    margin-bottom: 6rem;
   }
 
   .flying-nav__lists__list {
     /* mobile-all */
     max-height: calc(100vh - 213px);
+    height: calc(100vh - 213px);
   }
 
   .flying-nav__lists {
@@ -12171,6 +12216,7 @@ main {
     width: 200%;
     min-width: 200%;
     max-height: calc(100vh - 213px);
+    height: calc(100vh - 213px);
   }
 
   body.left-nav .flying-nav.left {
@@ -12488,6 +12534,7 @@ main {
   .flying-nav__lists__list {
     /* tablet-all */
     max-height: calc(100vh - 253px);
+    height: calc(100vh - 253px);
   }
 
   .flying-nav__lists {
@@ -12495,6 +12542,7 @@ main {
     width: 200%;
     min-width: 200%;
     max-height: calc(100vh - 253px);
+    height: calc(100vh - 253px);
   }
 
   body.left-nav .flying-nav.left {
