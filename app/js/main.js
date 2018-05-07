@@ -1,3 +1,4 @@
+
 // Импортируем jQuery
 //= scripts/jquery-2.1.1.js
 
@@ -6,6 +7,7 @@
 
 //= components/functions.js
 //= components/flying-nav.js
+//= components/contacts-nav.js
 //= components/counter.js
 //= scripts/lightslider.js
 //= scripts/jquery.nanoscroller.js
@@ -13,6 +15,9 @@
 //= ./scripts/classie.js
 //= ./scripts/snap.svg-min.js
 //= ./scripts/svgLoader.js
+
+
+//= components/map.js
 
 var slider;
 var pageCart;
@@ -111,6 +116,16 @@ $(window).load(function () {
                 }
             }
         }
+    });
+
+    contactsNav = $('.contact-menu').contactsNav({
+        // onAfterToggle: function () {
+        //         if (pageNav.hasClass('on-show')) {
+        //             $(".nano").nanoScroller();
+        //         } else {
+        //             $(".nano").nanoScroller({destroy: true});
+        //         }
+        // }
     });
 
     onDescktop(function () {
