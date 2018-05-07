@@ -954,5 +954,34 @@ body {
       }
     }
   }
+}
 
+//   MAP
+
+.map {
+  display: flex;
+
+
+  .contact-menu {
+    width: 340px;
+    background-color: #f2f2f2;
+
+    .flying-nav__switcher {
+      display: flex;
+    }
+
+    .flying-nav__lists {
+      padding: 20px;
+
+      &.lists {
+        display: flex;
+      }
+    }
+
+  }
+  .map-container {
+    width: calc(100% - 320px);
+    min-height: 600px;
+    position: relative;
+  }
 }
