@@ -16,8 +16,13 @@
 //= ./scripts/snap.svg-min.js
 //= ./scripts/svgLoader.js
 
-
 //= components/map.js
+
+
+//= ../../node_modules/jquery-mask-plugin/dist/jquery.mask.js
+//= ../../node_modules/jquery-validation/dist/jquery.validate.js
+//= ../../node_modules/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js
+
 
 var slider;
 var pageCart;
@@ -118,13 +123,7 @@ $(window).load(function () {
     });
 
     contactsNav = $('.contact-menu').contactsNav({
-        // onAfterToggle: function () {
-        //         if (pageNav.hasClass('on-show')) {
-        //             $(".nano").nanoScroller();
-        //         } else {
-        //             $(".nano").nanoScroller({destroy: true});
-        //         }
-        // }
+
     });
 
     onDescktop(function () {
@@ -161,5 +160,115 @@ $(window).load(function () {
         $(document.body).removeClass('preloader');
         pageLoader.hide();
     }, 1000);
+
+    //  FORM
+    $.support.placeholder = (function(){
+        var i = document.createElement('input');
+        return 'placeholder' in i;
+    })();
+
+    // Hide labels by default if placeholders are supported
+    if($.support.placeholder) {
+        $('.form-label').each(function(){
+            $(this).addClass('js-hide-label');
+        });
+
+        // Code for adding/removing classes here
+        $('.form-group').find('input, textarea').on('keyup blur focus', function(e){
+
+            // Cache our selectors
+            var $this = $(this),
+                $parent = $this.parent().find("label");
+
+            switch(e.type) {
+                case 'keyup': {
+                    $parent.toggleClass('js-hide-label', $this.val() == '');
+                } break;
+                case 'blur': {
+                    if( $this.val() == '' ) {
+                        $parent.addClass('js-hide-label');
+                    } else {
+                        $parent.removeClass('js-hide-label').addClass('js-unhighlight-label');
+                    }
+                } break;
+                case 'focus': {
+                    if( $this.val() !== '' ) {
+                        $parent.removeClass('js-unhighlight-label');
+                    }
+                } break;
+                default: break;
+            }
+        });
+    }
+
+    (function () {
+        var form = $('#contact-form');
+        if (form.length === 0 ) {
+            return false;
+        }
+        var frm = form.get(0);
+
+        $(frm.phone).mask('+7(000)000-00-00', {placeholder: "+7(___)___-__-__"});
+
+        $(frm).validate({
+            lang: 'ru',
+            errorClass: 'invalid-feedback',
+            errorElement: "span",
+            errorElementClass: 'is-invalid',
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 3
+                },
+                phone: {
+                    required: true,
+                    minlength: 16
+                },
+                datetime: {
+                    required: true
+                },
+                agreeClb: {
+                    required: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "Пожалуйста укажите ваше имя",
+                    minlength: "Имя должно содержать более двух символов"
+                },
+                phone: {
+                    required: "Укажите ваш телефонный номер",
+                    minlength: "Номер телефона должен состоять из 16-ти символов"
+                },
+                datetime: {
+                    required: "Выберите дату и время"
+                },
+                agreeClb: {
+                    required: "Необходимо согласие"
+                }
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass(this.settings.errorElementClass).removeClass(errorClass);
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass(this.settings.errorElementClass).removeClass(errorClass);
+            },
+            submitHandler: function (form) {
+                window.rcfm = form;
+                grecaptcha.execute(window.gRecaptchaItem);
+                return false;
+            }
+        });
+    })();
+    $.datetimepicker.setLocale('ru');
+    $('#datetime').datetimepicker({
+        mask:true,
+        format: 'd.m H:i',
+        minDate:0,
+        minTime:'10:00',
+        maxTime:'22:00',
+        step:30
+    });
+
 });
 

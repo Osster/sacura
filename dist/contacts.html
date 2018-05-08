@@ -313,13 +313,43 @@
             <div class="contact-menu on-show">
                 <div class="flying-nav__switcher switcher">
                     <a href="#" data-id="contacts-map">Адреса кафе</a>
-                    <a href="#" data-id="callback">Задать вопрос</a>
+                    <a href="#" data-id="callback">Заказать столик</a>
                 </div>
                 <div class="flying-nav__lists lists">
                     <div id="contacts-map" class="flying-nav__lists__list">
                     </div>
                     <div id="callback" class="flying-nav__lists__list">
-                        <h2>Задать вопрос</h2>
+                        <div class="submenu">
+                            <h4>Заказать столик</h4>
+                            <form id="contact-form" class="form" action="#" method="POST" role="form">
+                                <div class="form-group">
+                                    <label class="form-label" for="name">Ваше имя</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Имя" tabindex="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="phone">Ваш телефон</label>
+                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Ваш телефон" tabindex="2" required>
+                                </div>
+                                <div class="form-group">
+                                    <p>Адрес кафе:</p>
+                                    <select class="form-control" id="address" name="address" tabindex="3">
+                                        <option value="Лермонтовская">ул. Лермонтовская, 50/67</option>
+                                        <option value="Комарова">бул. Комарова, 9</option>
+                                        <option value="Коммунистический">пр. Коммунистический, 32</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <p>Дата и время:</p>
+                                    <input type="text" id="datetime" >
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" id="agreeClb" name="agreeClb" value="agree" required>Я согласен на обработку моих персональных данных
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-start-order">Отправить</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -393,6 +423,7 @@
     </svg>
 </div><!-- /pageload-overlay -->
 
+<!--<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>-->
 <script src="js/main.js"></script>
 
 </body>

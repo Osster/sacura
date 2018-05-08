@@ -39,6 +39,7 @@
     "aos": "^2.2.0",
     "bootstrap": "^4.0.0",
     "jquery": "^1.12.4",
+    "jquery-datetimepicker": "^2.5.20",
     "jquery-mask-plugin": "^1.14.15",
     "jquery-validation": "^1.17.0",
     "lightslider": "^1.1.6",

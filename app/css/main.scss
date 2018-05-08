@@ -12,6 +12,7 @@ $grid-breakpoints: (
 );
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/jquery-datetimepicker/jquery.datetimepicker";
 
 @import "template_vars";
 @import "template_mixins";
