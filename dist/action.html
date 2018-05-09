@@ -11,7 +11,6 @@
     <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="css/main.css">
-
 </head>
 
 <body class="preloader">
@@ -93,7 +92,8 @@
                     <a href="#"><img src="img/menu/rolly.png" alt=""><span class="item-label">Роллы</span></a>
                 </li>
                 <li class="flying-nav__lists__list__item">
-                    <a href="#"><img src="img/menu/hot-rolly.png" alt=""><span class="item-label">Горячие роллы</span></a>
+                    <a href="#"><img src="img/menu/hot-rolly.png" alt=""><span
+                            class="item-label">Горячие роллы</span></a>
                 </li>
                 <li class="flying-nav__lists__list__item">
                     <a href="#"><img src="img/menu/sety.png" alt=""><span class="item-label">Сеты</span></a>
@@ -146,7 +146,8 @@
                     <a href="#"><img src="img/menu/ptica.png" alt=""><span class="item-label">Птица</span></a>
                 </li>
                 <li class="flying-nav__lists__list__item">
-                    <a href="#"><img src="img/menu/rakoobraz.png" alt=""><span class="item-label">Ракообразные</span></a>
+                    <a href="#"><img src="img/menu/rakoobraz.png" alt=""><span
+                            class="item-label">Ракообразные</span></a>
                 </li>
                 <li class="flying-nav__lists__list__item">
                     <a href="#"><img src="img/menu/syr.png" alt=""><span class="item-label">Сыр</span></a>
@@ -311,66 +312,38 @@
     <main>
 
         <section class="page-header">
-            <h1>Контакты</h1>
+            <h1>Акциия</h1>
 
             <nav aria-item-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Главная</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Контакты</li>
+                    <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+                    <li class="breadcrumb-item"><a href="actions.html">Акции и Новости</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Акция</li>
                 </ol>
             </nav>
         </section>
 
-        <section class="map">
-            <div class="contact-menu on-show">
-                <div class="flying-nav__switcher switcher">
-                    <a href="#" data-id="contacts-map">Адреса кафе</a>
-                    <a href="#" data-id="callback">Заказать столик</a>
-                </div>
-                <div class="flying-nav__lists lists">
-                    <div id="contacts-map" class="flying-nav__lists__list">
-                    </div>
-                    <div id="callback" class="flying-nav__lists__list">
-                        <div class="submenu">
-                            <h4>Заказать столик</h4>
-                            <form id="contact-form" class="form" action="#" method="POST" role="form">
-                                <div class="form-group">
-                                    <label class="form-label" for="name">Ваше имя</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Имя" tabindex="1" required>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="phone">Ваш телефон</label>
-                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Ваш телефон" tabindex="2" required>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="phone">Адрес кафе:</label>
-                                    <select class="form-control" id="address" name="address" tabindex="3">
-                                        <option value="Лермонтовская">ул. Лермонтовская, 50/67</option>
-                                        <option value="Комарова">бул. Комарова, 9</option>
-                                        <option value="Коммунистический">пр. Коммунистический, 32</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="phone">Дата и время:</label>
-                                    <input type="text" id="datetime" >
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="phone">Подробности:</label>
-                                    <textarea type="text" id="message"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="agreeClb" name="agreeClb" value="agree" required>Я согласен на обработку моих персональных данных
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-start-order">Отправить</button>
-                                </div>
-                            </form>
+        <section class="page-article">
+            <div class="page-article__content">
+                <div class="container mx-3">
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim est excepturi ipsam iure maxime
+                                quisquam quos sed! Aperiam debitis est excepturi fuga, nobis nostrum placeat sapiente sint vel
+                                veritatis, vitae.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci error exercitationem iusto
+                                mollitia neque. Accusamus facere magnam placeat quibusdam sunt. Ad amet deleniti dolor eaque illum
+                                quisquam sequi sunt unde.</p>
+
+                            <a href="actions.html" class="button button__outline my-4 d-inline-block">Назад к списку</a>
+                        </div>
+                        <div class="col-lg-6">
+                            <img src="img/slides/slide-1.jpg" class="page-article__content__media img-fluid mb-4">
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="map" class="map-container"></div>
-            
         </section>
     </main>
     <footer>
@@ -412,12 +385,12 @@
                     <nav class="nav">
                         <ul class="nav__list">
                             <li class="nav__list__item">
-                                <a href="#" class="nav__list__item__link ">
+                                <a href="/" class="nav__list__item__link ">
                                     Условия доставки
                                 </a>
                             </li>
                             <li class="nav__list__item">
-                                <a href="contacts.html" class="nav__list__item__link ">
+                                <a href="/" class="nav__list__item__link ">
                                     Адреса кафе
                                 </a>
                             </li>
@@ -437,7 +410,6 @@
     </svg>
 </div><!-- /pageload-overlay -->
 
-<!--<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>-->
 <script src="js/main.js"></script>
 
 </body>

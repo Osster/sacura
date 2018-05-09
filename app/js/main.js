@@ -119,6 +119,10 @@ $(window).load(function () {
             } else {
                 $(".nano").nanoScroller({destroy: true});
             }
+
+            if(typeof yaMap !== 'undefined') {
+                yaMap.container.fitToViewport(true);
+            }
         }
     });
 
@@ -169,36 +173,36 @@ $(window).load(function () {
 
     // Hide labels by default if placeholders are supported
     if($.support.placeholder) {
-        $('.form-label').each(function(){
-            $(this).addClass('js-hide-label');
-        });
-
+        // $('.form-label').each(function(){
+        //     $(this).addClass('js-hide-label');
+        // });
+        //
         // Code for adding/removing classes here
-        $('.form-group').find('input, textarea').on('keyup blur focus', function(e){
-
-            // Cache our selectors
-            var $this = $(this),
-                $parent = $this.parent().find("label");
-
-            switch(e.type) {
-                case 'keyup': {
-                    $parent.toggleClass('js-hide-label', $this.val() == '');
-                } break;
-                case 'blur': {
-                    if( $this.val() == '' ) {
-                        $parent.addClass('js-hide-label');
-                    } else {
-                        $parent.removeClass('js-hide-label').addClass('js-unhighlight-label');
-                    }
-                } break;
-                case 'focus': {
-                    if( $this.val() !== '' ) {
-                        $parent.removeClass('js-unhighlight-label');
-                    }
-                } break;
-                default: break;
-            }
-        });
+        // $('.form-group').find('input, textarea').on('keyup blur focus', function(e){
+        //
+        //     // Cache our selectors
+        //     var $this = $(this),
+        //         $parent = $this.parent().find("label");
+        //
+        //     switch(e.type) {
+        //         case 'keyup': {
+        //             $parent.toggleClass('js-hide-label', $this.val() == '');
+        //         } break;
+        //         case 'blur': {
+        //             if( $this.val() == '' ) {
+        //                 $parent.addClass('js-hide-label');
+        //             } else {
+        //                 $parent.removeClass('js-hide-label').addClass('js-unhighlight-label');
+        //             }
+        //         } break;
+        //         case 'focus': {
+        //             if( $this.val() !== '' ) {
+        //                 $parent.removeClass('js-unhighlight-label');
+        //             }
+        //         } break;
+        //         default: break;
+        //     }
+        // });
     }
 
     (function () {
@@ -260,10 +264,11 @@ $(window).load(function () {
             }
         });
     })();
+
     $.datetimepicker.setLocale('ru');
     $('#datetime').datetimepicker({
         mask:true,
-        format: 'd.m H:i',
+        format: 'd.m.Y H:i',
         minDate:0,
         minTime:'10:00',
         maxTime:'22:00',

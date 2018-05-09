@@ -29,6 +29,8 @@ var groups = [
     }
 ];
 
+var yaMap;
+
 // Безопасно подгружаем АПИ Яндекс Карт
 (function ($) {
     $.getScript(
@@ -41,11 +43,14 @@ var groups = [
 function init() {
 
     // Создание экземпляра карты.
-    var myMap = new ymaps.Map('map', {
+    yaMap = new ymaps.Map('map', {
         center: [47.228500, 39.703539],
         zoom: 10,
         controls: ['zoomControl', 'fullscreenControl', 'geolocationControl']
     });
+
+    yaMap.behaviors
+        .disable(['scrollZoom']);
 
 
     // Контейнер для меню.
@@ -62,7 +67,7 @@ function init() {
             collection = new ymaps.GeoObjectCollection(null, {preset: group.style});
 
         // Добавляем коллекцию на карту.
-        myMap.geoObjects.add(collection);
+        yaMap.geoObjects.add(collection);
         // Добавляем подменю.
         submenu
             // Добавляем пункт в меню.
@@ -71,10 +76,10 @@ function init() {
             .find('a')
             .bind('click', function () {
                 if (collection.getParent()) {
-                    myMap.geoObjects.remove(collection);
+                    yaMap.geoObjects.remove(collection);
                     submenu.hide();
                 } else {
-                    myMap.geoObjects.add(collection);
+                    yaMap.geoObjects.add(collection);
                     submenu.show();
                 }
             });
@@ -108,6 +113,7 @@ function init() {
 
     // Добавляем меню в тэг MAP.
     menu.appendTo($('#contacts-map'));
+
     // Выставляем масштаб карты чтобы были видны все группы.
-    myMap.setBounds(myMap.geoObjects.getBounds());
+    yaMap.setBounds(yaMap.geoObjects.getBounds());
 }
