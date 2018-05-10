@@ -112,8 +112,9 @@ function init() {
     }
 
     // Добавляем меню в тэг MAP.
-    menu.appendTo($('#contacts-map'));
+    menu.appendTo($('#contacts-map .contacts-list'));
 
     // Выставляем масштаб карты чтобы были видны все группы.
     yaMap.setBounds(yaMap.geoObjects.getBounds());
+
 }

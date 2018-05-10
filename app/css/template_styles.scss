@@ -1291,26 +1291,55 @@ body {
 
   .contact-menu {
     position: absolute;
-    top: 1rem;
-    bottom: 1rem;
-    left: 5rem;
     width: $aside_width;
     background-color: darken($color_white, 5%);
     z-index: 1;
     overflow: hidden;
 
-    .flying-nav__switcher {
-      display: flex;
-    }
+    top: 1rem;
+    left: 5rem;
+    height: #{$switcher_height};
 
-    .flying-nav__lists {
-      display: flex;
-      max-height: #{$contact_form_height - $switcher_height};
-      height: #{$contact_form_height - $switcher_height};
-
-      &__list {
+    .flying-nav {
+      &__switcher {
+        display: flex;
+        border-color: transparent;
+      }
+      &__title {
+        .text {
+          display: block;
+        }
+        .close {
+          display: block;
+        }
+      }
+      &__lists {
+        display: none;
         max-height: #{$contact_form_height - $switcher_height};
         height: #{$contact_form_height - $switcher_height};
+
+        &__list {
+          max-height: #{$contact_form_height - $switcher_height};
+          height: #{$contact_form_height - $switcher_height};
+        }
+      }
+    }
+
+    &.on-show {
+      bottom: 1rem;
+      height: auto;
+
+      .flying-nav {
+        &__switcher {
+          border-color: $color_gray;
+        }
+        &__lists {
+          display: flex;
+        }
+      }
+
+      @include mobile-all() {
+        bottom: 0 !important;
       }
     }
 
@@ -1344,6 +1373,7 @@ body {
 
     form {
       .form-group {
+        position: relative;
         p {
           margin-bottom: 0.25rem;
         }
@@ -1354,7 +1384,14 @@ body {
       }
       input[type="checkbox"] {
         margin-right: 0.5rem;
+
+        & + .invalid-feedback {
+          position: absolute;
+          bottom: -1.5rem;
+          left: 0;
+        }
       }
+
       textarea {
         resize: none;
         height: 60px;
@@ -1403,6 +1440,14 @@ body {
       }
     }
 
+    @include mobile-all() {
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+
+      background-color: rgba(darken($color_white, 5%), 0.8);
+    }
   }
 
   .map-container {
@@ -1414,6 +1459,11 @@ body {
     > * {
       min-width: 100%;
       width: 100% !important;
+    }
+
+    @include mobile-all() {
+      width: 100% !important;
+      margin: 0;
     }
   }
 }

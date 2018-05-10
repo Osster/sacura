@@ -8,6 +8,9 @@ $.fn.pageNav = function (options) {
     // }
 
     that.show = function () {
+        if (typeof options !== 'undefined' && typeof options.onBeforeToggle === 'function') {
+            options.onBeforeToggle();
+        }
         that.addClass('on-show');
         dBody.addClass('left-nav');
         setTimeout(function () {
@@ -17,6 +20,9 @@ $.fn.pageNav = function (options) {
         }, 400);
     };
     that.hide = function () {
+        if (typeof options !== 'undefined' && typeof options.onBeforeToggle === 'function') {
+            options.onBeforeToggle();
+        }
         that.removeClass('on-show');
         dBody.removeClass('left-nav');
         setTimeout(function () {
@@ -49,7 +55,7 @@ $.fn.pageNav = function (options) {
             that.hide();
         });
 
-        var $show = that.find('.on-show');
+        var $show = that.find('.flying-nav__show');
         $show.on('click', function () {
             that.show();
         });

@@ -109,6 +109,13 @@ $(window).load(function () {
     }, 600);
 
     pageNav = $('#page-nav').pageNav({
+        onBeforeToggle: function () {
+            if (pageNav.hasClass('on-show')) {
+                $('#page-nav .flying-nav__arrow').addClass('on-show');
+            } else {
+                $('#page-nav .flying-nav__arrow').removeClass('on-show');
+            }
+        },
         onAfterToggle: function () {
             if (typeof slider !== 'undefined' && slider.length > 0) {
                 slider.refresh();
@@ -123,12 +130,27 @@ $(window).load(function () {
             if(typeof yaMap !== 'undefined') {
                 yaMap.container.fitToViewport(true);
             }
+
         }
     });
 
-    contactsNav = $('.contact-menu').contactsNav({
+    // Page Scroll
+    $('#page-nav .flying-nav__arrow').off('click').on('click', function () {
+        var currentScroll = $('.page-wrapper').get(0).scrollTop;
+        var currentScrollHeight = $('.page-wrapper').get(0).scrollHeight;
+        var whdH = $(window).height();
+        var footerH = $('footer').outerHeight();
 
+        scrollV = currentScrollHeight - whdH;
+
+        if ((scrollV - currentScroll) < footerH) {
+            scrollV = 0;
+        }
+
+        $( ".page-wrapper" ).animate({'scrollTop': scrollV}, 1000);
     });
+
+    contactsNav = $('.contact-menu').contactsNav({});
 
     onDescktop(function () {
         //Show Left Menu
@@ -165,47 +187,49 @@ $(window).load(function () {
         pageLoader.hide();
     }, 1000);
 
+
+
     //  FORM
-    $.support.placeholder = (function(){
-        var i = document.createElement('input');
-        return 'placeholder' in i;
-    })();
-
-    // Hide labels by default if placeholders are supported
-    if($.support.placeholder) {
-        // $('.form-label').each(function(){
-        //     $(this).addClass('js-hide-label');
-        // });
-        //
-        // Code for adding/removing classes here
-        // $('.form-group').find('input, textarea').on('keyup blur focus', function(e){
-        //
-        //     // Cache our selectors
-        //     var $this = $(this),
-        //         $parent = $this.parent().find("label");
-        //
-        //     switch(e.type) {
-        //         case 'keyup': {
-        //             $parent.toggleClass('js-hide-label', $this.val() == '');
-        //         } break;
-        //         case 'blur': {
-        //             if( $this.val() == '' ) {
-        //                 $parent.addClass('js-hide-label');
-        //             } else {
-        //                 $parent.removeClass('js-hide-label').addClass('js-unhighlight-label');
-        //             }
-        //         } break;
-        //         case 'focus': {
-        //             if( $this.val() !== '' ) {
-        //                 $parent.removeClass('js-unhighlight-label');
-        //             }
-        //         } break;
-        //         default: break;
-        //     }
-        // });
-    }
-
     (function () {
+        $.support.placeholder = (function(){
+            var i = document.createElement('input');
+            return 'placeholder' in i;
+        })();
+
+        // Hide labels by default if placeholders are supported
+        if($.support.placeholder) {
+            // $('.form-label').each(function(){
+            //     $(this).addClass('js-hide-label');
+            // });
+            //
+            // Code for adding/removing classes here
+            // $('.form-group').find('input, textarea').on('keyup blur focus', function(e){
+            //
+            //     // Cache our selectors
+            //     var $this = $(this),
+            //         $parent = $this.parent().find("label");
+            //
+            //     switch(e.type) {
+            //         case 'keyup': {
+            //             $parent.toggleClass('js-hide-label', $this.val() == '');
+            //         } break;
+            //         case 'blur': {
+            //             if( $this.val() == '' ) {
+            //                 $parent.addClass('js-hide-label');
+            //             } else {
+            //                 $parent.removeClass('js-hide-label').addClass('js-unhighlight-label');
+            //             }
+            //         } break;
+            //         case 'focus': {
+            //             if( $this.val() !== '' ) {
+            //                 $parent.removeClass('js-unhighlight-label');
+            //             }
+            //         } break;
+            //         default: break;
+            //     }
+            // });
+        }
+
         var form = $('#contact-form');
         if (form.length === 0 ) {
             return false;
@@ -263,17 +287,17 @@ $(window).load(function () {
                 return false;
             }
         });
-    })();
 
-    $.datetimepicker.setLocale('ru');
-    $('#datetime').datetimepicker({
-        mask:true,
-        format: 'd.m.Y H:i',
-        minDate:0,
-        minTime:'10:00',
-        maxTime:'22:00',
-        step:30
-    });
+        $.datetimepicker.setLocale('ru');
+        $('#datetime').datetimepicker({
+            mask:true,
+            format: 'd.m.Y H:i',
+            minDate:0,
+            minTime:'10:00',
+            maxTime:'22:00',
+            step:30
+        });
+    })();
 
 });
 

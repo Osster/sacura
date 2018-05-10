@@ -93,7 +93,8 @@
                     <a href="#"><img src="img/menu/rolly.png" alt=""><span class="item-label">Роллы</span></a>
                 </li>
                 <li class="flying-nav__lists__list__item">
-                    <a href="#"><img src="img/menu/hot-rolly.png" alt=""><span class="item-label">Горячие роллы</span></a>
+                    <a href="#"><img src="img/menu/hot-rolly.png" alt=""><span
+                            class="item-label">Горячие роллы</span></a>
                 </li>
                 <li class="flying-nav__lists__list__item">
                     <a href="#"><img src="img/menu/sety.png" alt=""><span class="item-label">Сеты</span></a>
@@ -146,7 +147,8 @@
                     <a href="#"><img src="img/menu/ptica.png" alt=""><span class="item-label">Птица</span></a>
                 </li>
                 <li class="flying-nav__lists__list__item">
-                    <a href="#"><img src="img/menu/rakoobraz.png" alt=""><span class="item-label">Ракообразные</span></a>
+                    <a href="#"><img src="img/menu/rakoobraz.png" alt=""><span
+                            class="item-label">Ракообразные</span></a>
                 </li>
                 <li class="flying-nav__lists__list__item">
                     <a href="#"><img src="img/menu/syr.png" alt=""><span class="item-label">Сыр</span></a>
@@ -160,6 +162,9 @@
             </ul>
         </div>
     </div>
+    <a href="#" class="flying-nav__arrow on-show">
+        <img src="img/icons/Arrow_Down.svg" width="24px" height="24px">
+    </a>
 </aside>
 <aside id="page-cart" class="flying-nav right">
     <div class="flying-nav__title">
@@ -329,18 +334,36 @@
                 </div>
                 <div class="flying-nav__lists lists">
                     <div id="contacts-map" class="flying-nav__lists__list">
+                        <div class="flying-nav__title">
+                            <span class="text">Адреса кафе</span>
+                            <a href="#" class="flying-nav__close close">
+                                <svg class="icon icon-close">
+                                    <use xlink:href="#times"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="contacts-list"></div>
                     </div>
                     <div id="callback" class="flying-nav__lists__list">
+                        <div class="flying-nav__title">
+                            <span class="text">Заказать столик</span>
+                            <a href="#" class="flying-nav__close close">
+                                <svg class="icon icon-close">
+                                    <use xlink:href="#times"></use>
+                                </svg>
+                            </a>
+                        </div>
                         <div class="submenu">
-                            <h4>Заказать столик</h4>
                             <form id="contact-form" class="form" action="#" method="POST" role="form">
                                 <div class="form-group">
                                     <label class="form-label" for="name">Ваше имя</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Имя" tabindex="1" required>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Имя"
+                                           tabindex="1" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="phone">Ваш телефон</label>
-                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Ваш телефон" tabindex="2" required>
+                                    <input type="text" class="form-control" id="phone" name="phone"
+                                           placeholder="Ваш телефон" tabindex="2" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="phone">Адрес кафе:</label>
@@ -352,14 +375,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="phone">Дата и время:</label>
-                                    <input type="text" id="datetime" >
+                                    <input type="text" id="datetime">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="phone">Подробности:</label>
                                     <textarea type="text" id="message"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <input type="checkbox" id="agreeClb" name="agreeClb" value="agree" required>Я согласен на обработку моих персональных данных
+                                    <label for="agreeClb">
+                                        <input type="checkbox" id="agreeClb" name="agreeClb" value="agree" required>
+                                        Я согласен на обработку моих персональных данных
+                                    </label>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-start-order">Отправить</button>
@@ -370,7 +396,7 @@
                 </div>
             </div>
             <div id="map" class="map-container"></div>
-            
+
         </section>
     </main>
     <footer>

@@ -8,6 +8,7 @@ $.fn.contactsNav = function (options) {
 
 
     var switchList = function (id) {
+        that.addClass('on-show');
         currentListId = id;
         var list = $('#' + id);
         if (list.length > 0) {
@@ -22,6 +23,7 @@ $.fn.contactsNav = function (options) {
 
         var $btn = $(btns.get(0));
         var listId = $btn.data('id');
+        var $close = that.find('.close');
         switchList(listId);
         $btn.addClass('active');
 
@@ -32,6 +34,12 @@ $.fn.contactsNav = function (options) {
             $btn.parent().find('.active').removeClass('active');
             $btn.addClass('active');
             return false;
+        });
+
+        $close.off('click').on('click', function () {
+            var btns = that.find('.switcher a');
+            btns.removeClass('active');
+            that.removeClass('on-show');
         });
 
         $(window).resize(function () {
