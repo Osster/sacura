@@ -7066,6 +7066,7 @@ a.text-dark:focus {
 
 .flying-nav__cart-total {
   padding: 1rem 1rem;
+  height: 56px;
   color: #ef9031;
   display: -ms-flexbox;
   display: flex;
@@ -7081,7 +7082,7 @@ a.text-dark:focus {
   border-right: none;
   padding: 0.5rem 1rem;
   margin: 0;
-  max-height: calc(100vh - 249px - 3rem);
+  max-height: calc(100vh - 305px - 3rem);
   overflow: hidden;
   overflow-y: auto;
 }
@@ -13244,6 +13245,11 @@ main {
 }
 
 @media (max-width: 812px) and (max-height: 576px) and (orientation: landscape), (max-width: 576px) and (max-height: 812px) and (orientation: portrait) {
+  .flying-nav.left .flying-nav__arrow.on-show {
+    /* mobile-all */
+    bottom: 5rem;
+  }
+
   .flying-nav__lists__list__item {
     /* mobile-all */
   }
