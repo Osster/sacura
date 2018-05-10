@@ -971,6 +971,8 @@ body {
       padding: 0 1rem;
       &__item {
         list-style: none;
+        height: 44px;
+
         > * {
           @extend .button;
           @extend .button__outline;
@@ -996,12 +998,13 @@ body {
         display: flex;
         flex-flow: row wrap;
         margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
 
         & > a {
-          width: 50%;
+          width: 100%;
         }
         .card-body {
-          width: 50%;
+          width: 100%;
         }
         .card-footer {
           width: 100%;
@@ -1270,6 +1273,7 @@ body {
         }
       }
     }
+
   }
   &__navigation {
     padding: 0 1rem 3rem;
@@ -1279,6 +1283,50 @@ body {
 
       &:hover {
         color: $color_orange;
+      }
+    }
+  }
+}
+
+.page-article {
+  &__content {
+    .container {
+      margin: 0 1rem;
+
+      @include mobile-all() {
+        margin: 0;
+        padding: 0;
+      }
+    }
+    .table {
+      margin-bottom: 2rem;
+
+      tr {
+        @include mobile-all() {
+          display: flex !important;
+          flex-flow: column nowrap !important;
+        }
+        td {
+          @include mobile-all() {
+            text-align: left !important;
+            &:first-of-type {
+              background-color: darken($color_white, 5%);
+            }
+            &:last-of-type {
+              margin-bottom: 2rem;
+            }
+          }
+        }
+      }
+    }
+    &__text {
+      @include mobile-all() {
+        order: 2;
+      }
+    }
+    &__media {
+      @include mobile-all() {
+        order: 1;
       }
     }
   }
